@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>StudentHub | Student Record Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+    <div class="brand">
+
+        <div class="brand-logo">
+            SH
+        </div>
+
+        <div>
+            <h2>StudentHub</h2>
+            <small>Academic Portal</small>
+        </div>
+
+    </div>
+
+
+    <div class="menu-title">
+        MAIN MENU
+    </div>
+
+
+    <nav class="navigation">
+
+        <button class="nav-item active"
+                onclick="showSection('dashboard', this)">
+
+            <span>⌂</span>
+            <span>Dashboard</span>
+
+        </button>
+
+
+        <button class="nav-item"
+                onclick="showSection('students', this)">
+
+            <span>🎓</span>
+            <span>Students</span>
+
+        </button>
+
+
+        <button class="nav-item"
+                onclick="showSection('academics', this)">
+
+            <span>📚</span>
+            <span>Academics</span>
+
+        </button>
+
+
+        <button class="nav-item"
+                onclick="showSection('attendance', this)">
+
+            <span>🕐</span>
+            <span>Attendance</span>
+
+        </button>
+
+
+        <button class="nav-item"
+                onclick="showSection('courses', this)">
+
+            <span>📋</span>
+            <span>Courses</span>
+
+        </button>
+
+
+        <button class="nav-item"
+                onclick="showSection('waiting', this)">
+
+            <span>⏳</span>
+            <span>Waiting List</span>
+
+        </button>
+
+
+        <div class="menu-title second">
+            MANAGEMENT
+        </div>
+
+
+        <button class="nav-item"
+                onclick="showSection('deleted', this)">
+
+            <span>↩</span>
+            <span>Recently Deleted</span>
+
+        </button>
+
+
+        <button class="nav-item"
+                onclick="showSection('reports', this)">
+
+            <span>📊</span>
+            <span>Reports & Analytics</span>
+
+        </button>
+
+
+        <button class="nav-item"
+                onclick="showSection('dsa', this)">
+
+            <span>🧠</span>
+            <span>DSA Operations</span>
+
+        </button>
+
+
+        <div class="menu-title second">
+            SYSTEM
+        </div>
+
+
+        <button class="nav-item"
+                onclick="showSection('administration', this)">
+
+            <span>👥</span>
+            <span>Administration</span>
+
+        </button>
+
+
+        <button class="nav-item"
+                onclick="showSection('notifications', this)">
+
+            <span>🔔</span>
+            <span>Notifications</span>
+
+            <span class="notification-number">
+                3
+            </span>
+
+        </button>
+
+
+        <button class="nav-item"
+                onclick="showSection('settings', this)">
+
+            <span>⚙️</span>
+            <span>Settings</span>
+
+        </button>
+
+    </nav>
+
+
+    <!-- ADMIN AREA -->
+
+    <div class="sidebar-admin">
+
+        <div class="admin-heading">
+            HEAD ADMINISTRATORS
+        </div>
+
+
+        <div class="admin-person">
+
+            <div class="admin-avatar">
+                K
+            </div>
+
+            <div>
+                <strong>Krupa</strong>
+                <small>Head Administrator</small>
+            </div>
+
+        </div>
+
+
+        <div class="admin-person">
+
+            <div class="admin-avatar">
+                V
+            </div>
+
+            <div>
+                <strong>Vidula</strong>
+                <small>Head Administrator</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <div>
+
+            <div class="breadcrumb">
+                StudentHub / <span id="pageName">Dashboard</span>
+            </div>
+
+            <h1 id="pageTitle">
+                Dashboard
+            </h1>
+
+        </div>
+
+
+        <div class="top-actions">
+
+            <button class="icon-button"
+                    onclick="showSection('notifications')">
+
+                🔔
+
+                <span class="notification-dot"></span>
+
+            </button>
+
+
+            <div class="profile">
+
+                <div class="profile-avatar">
+                    VA
+                </div>
+
+                <div>
+                    <strong>Administrator</strong>
+                    <small>System Admin</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <section id="dashboard"
+             class="page-section active-section">
+
+
+        <div class="welcome-card">
+
+            <div>
+
+                <p class="eyebrow">
+                    STUDENT RECORD MANAGEMENT SYSTEM
+                </p>
+
+                <h2>
+                    Welcome back, Krupa & Vidula 👋
+                </h2>
+
+                <p>
+                    Manage student records, academics,
+                    attendance and DSA operations
+                    from one centralized portal.
+                </p>
+
+            </div>
+
+
+            <button class="primary-button"
+                    onclick="showSection('students')">
+
+                View Student Records →
+
+            </button>
+
+        </div>
+
+
+        <!-- STATISTICS -->
+
+        <div class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    🎓
+                </div>
+
+                <div>
+                    <span>Total Students</span>
+
+                    <h3 id="totalStudents">
+                        0
+                    </h3>
+
+                    <small class="positive">
+                        ↑ Active records
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    ⭐
+                </div>
+
+                <div>
+                    <span>Average CGPA</span>
+
+                    <h3 id="averageCGPA">
+                        0.00
+                    </h3>
+
+                    <small>
+                        Out of 10.00
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    🏆
+                </div>
+
+                <div>
+                    <span>Highest CGPA</span>
+
+                    <h3 id="highestCGPA">
+                        0.00
+                    </h3>
+
+                    <small>
+                        Top performer
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    ⏳
+                </div>
+
+                <div>
+                    <span>Waiting List</span>
+
+                    <h3 id="waitingCount">
+                        0
+                    </h3>
+
+                    <small>
+                        Pending admission
+                    </small>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DASHBOARD CONTENT -->
+
+        <div class="dashboard-grid">
+
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <span class="eyebrow">
+                            RECENT ACTIVITY
+                        </span>
+
+                        <h3>
+                            Recent Student Records
+                        </h3>
+                    </div>
+
+                    <button class="text-button"
+                            onclick="showSection('students')">
+
+                        View All
+
+                    </button>
+
+                </div>
+
+
+                <div id="recentStudents"
+                     class="recent-list">
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <span class="eyebrow">
+                            PERFORMANCE
+                        </span>
+
+                        <h3>
+                            CGPA Overview
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="cgpa-chart">
+
+                    <div class="chart-bar">
+
+                        <span>9–10</span>
+
+                        <div>
+                            <i id="barExcellent"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-bar">
+
+                        <span>8–8.9</span>
+
+                        <div>
+                            <i id="barGood"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-bar">
+
+                        <span>7–7.9</span>
+
+                        <div>
+                            <i id="barAverage"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-bar">
+
+                        <span>&lt;7</span>
+
+                        <div>
+                            <i id="barLow"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUICK ACTIONS -->
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        QUICK ACTIONS
+                    </span>
+
+                    <h3>
+                        Frequently Used Operations
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-actions">
+
+                <button onclick="openStudentModal()">
+                    <span>➕</span>
+                    Add Student
+                </button>
+
+                <button onclick="showSection('students')">
+                    <span>🔍</span>
+                    Search Records
+                </button>
+
+                <button onclick="exportCSV()">
+                    <span>📥</span>
+                    Export Excel
+                </button>
+
+                <button onclick="showSection('reports')">
+                    <span>📊</span>
+                    View Reports
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STUDENTS ================= -->
+
+    <section id="students"
+             class="page-section">
+
+
+        <div class="section-top">
+
+            <div>
+
+                <span class="eyebrow">
+                    STUDENT DATABASE
+                </span>
+
+                <h2>
+                    Student Records
+                </h2>
+
+                <p>
+                    Manage and maintain complete student information.
+                </p>
+
+            </div>
+
+
+            <button class="primary-button"
+                    onclick="openStudentModal()">
+
+                + Add Student
+
+            </button>
+
+        </div>
+
+
+        <div class="toolbar">
+
+            <div class="search-box">
+
+                🔍
+
+                <input type="text"
+                       id="searchInput"
+                       placeholder="Search by name, roll number or department..."
+                       onkeyup="searchStudents()">
+
+            </div>
+
+
+            <select id="departmentFilter"
+                    onchange="filterStudents()">
+
+                <option value="">
+                    All Departments
+                </option>
+
+                <option value="EXTC">
+                    EXTC
+                </option>
+
+                <option value="CSE">
+                    CSE
+                </option>
+
+                <option value="IT">
+                    IT
+                </option>
+
+                <option value="AI & DS">
+                    AI & DS
+                </option>
+
+            </select>
+
+
+            <select id="sortSelect"
+                    onchange="sortStudents()">
+
+                <option value="">
+                    Sort Records
+                </option>
+
+                <option value="cgpaHigh">
+                    CGPA: High → Low
+                </option>
+
+                <option value="cgpaLow">
+                    CGPA: Low → High
+                </option>
+
+                <option value="name">
+                    Name: A → Z
+                </option>
+
+            </select>
+
+
+            <button class="export-button"
+                    onclick="exportCSV()">
+
+                📥 Export Excel
+
+            </button>
+
+        </div>
+
+
+        <div class="table-panel">
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ROLL NO.</th>
+                            <th>STUDENT</th>
+                            <th>DEPARTMENT</th>
+                            <th>YEAR</th>
+                            <th>DIV.</th>
+                            <th>CGPA</th>
+                            <th>ATTENDANCE</th>
+                            <th>STATUS</th>
+                            <th>ACTIONS</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="studentTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ACADEMICS ================= -->
+
+    <section id="academics"
+             class="page-section">
+
+        <div class="section-top">
+
+            <div>
+
+                <span class="eyebrow">
+                    ACADEMIC MANAGEMENT
+                </span>
+
+                <h2>
+                    Academic Records
+                </h2>
+
+                <p>
+                    Monitor CGPA and academic performance.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="academic-cards">
+
+            <div class="big-academic-card">
+
+                <span>
+                    Average CGPA
+                </span>
+
+                <strong id="academicAverage">
+                    0.00
+                </strong>
+
+                <p>
+                    Overall student performance
+                </p>
+
+            </div>
+
+
+            <div class="big-academic-card">
+
+                <span>
+                    Top Performer
+                </span>
+
+                <strong id="topStudent">
+                    -
+                </strong>
+
+                <p>
+                    Highest CGPA
+                </p>
+
+            </div>
+
+
+            <div class="big-academic-card">
+
+                <span>
+                    Excellent Students
+                </span>
+
+                <strong id="excellentStudents">
+                    0
+                </strong>
+
+                <p>
+                    CGPA 9.0 and above
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        ACADEMIC PERFORMANCE
+                    </span>
+
+                    <h3>
+                        Student CGPA Ranking
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div id="cgpaRanking"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ATTENDANCE ================= -->
+
+    <section id="attendance"
+             class="page-section">
+
+        <div class="section-top">
+
+            <div>
+
+                <span class="eyebrow">
+                    ATTENDANCE MANAGEMENT
+                </span>
+
+                <h2>
+                    Attendance Overview
+                </h2>
+
+                <p>
+                    Monitor student attendance status.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="attendance-summary">
+
+            <div class="attendance-card">
+
+                <span>Average Attendance</span>
+
+                <strong id="averageAttendance">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="attendance-card">
+
+                <span>Above 75%</span>
+
+                <strong id="goodAttendance">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="attendance-card">
+
+                <span>Below 75%</span>
+
+                <strong id="lowAttendance">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-panel">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ROLL NO.</th>
+                        <th>STUDENT</th>
+                        <th>DEPARTMENT</th>
+                        <th>ATTENDANCE</th>
+                        <th>STATUS</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="attendanceTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= COURSES ================= -->
+
+    <section id="courses"
+             class="page-section">
+
+        <div class="section-top">
+
+            <div>
+
+                <span class="eyebrow">
+                    ACADEMIC STRUCTURE
+                </span>
+
+                <h2>
+                    Courses & Subjects
+                </h2>
+
+                <p>
+                    Manage academic subjects and departments.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="course-grid">
+
+            <div class="course-card">
+
+                <div class="course-icon">
+                    📡
+                </div>
+
+                <h3>
+                    EXTC
+                </h3>
+
+                <p>
+                    Electronics & Telecommunication
+                    Engineering
+                </p>
+
+                <span>
+                    8 Subjects
+                </span>
+
+            </div>
+
+
+            <div class="course-card">
+
+                <div class="course-icon">
+                    💻
+                </div>
+
+                <h3>
+                    CSE
+                </h3>
+
+                <p>
+                    Computer Science & Engineering
+                </p>
+
+                <span>
+                    8 Subjects
+                </span>
+
+            </div>
+
+
+            <div class="course-card">
+
+                <div class="course-icon">
+                    🖥️
+                </div>
+
+                <h3>
+                    IT
+                </h3>
+
+                <p>
+                    Information Technology
+                </p>
+
+                <span>
+                    8 Subjects
+                </span>
+
+            </div>
+
+
+            <div class="course-card">
+
+                <div class="course-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    AI & DS
+                </h3>
+
+                <p>
+                    Artificial Intelligence & Data Science
+                </p>
+
+                <span>
+                    8 Subjects
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= WAITING LIST ================= -->
+
+    <section id="waiting"
+             class="page-section">
+
+        <div class="section-top">
+
+            <div>
+
+                <span class="eyebrow">
+                    QUEUE MANAGEMENT
+                </span>
+
+                <h2>
+                    Admission Waiting List
+                </h2>
+
+                <p>
+                    FIFO-based student admission queue.
+                </p>
+
+            </div>
+
+
+            <button class="primary-button"
+                    onclick="addWaitingStudent()">
+
+                + Add to Queue
+
+            </button>
+
+        </div>
+
+
+        <div class="queue-summary">
+
+            <div class="queue-number"
+                 id="queueNumber">
+
+                0
+
+            </div>
+
+            <div>
+
+                <strong>
+                    Students waiting for admission
+                </strong>
+
+                <p>
+                    First In, First Out (FIFO)
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="panel">
+
+            <div id="waitingList">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= DELETED ================= -->
+
+    <section id="deleted"
+             class="page-section">
+
+        <div class="section-top">
+
+            <div>
+
+                <span class="eyebrow">
+                    STACK MANAGEMENT
+                </span>
+
+                <h2>
+                    Recently Deleted
+                </h2>
+
+                <p>
+                    Deleted records are stored for undo operations.
+                </p>
+
+            </div>
+
+
+            <button class="secondary-button"
+                    onclick="undoDelete()">
+
+                ↩ Undo Last Delete
+
+            </button>
+
+        </div>
+
+
+        <div class="panel">
+
+            <div id="deletedList">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= REPORTS ================= -->
+
+    <section id="reports"
+             class="page-section">
+
+        <div class="section-top">
+
+            <div>
+
+                <span class="eyebrow">
+                    REPORTING & ANALYTICS
+                </span>
+
+                <h2>
+                    Reports & Analytics
+                </h2>
+
+                <p>
+                    Overview of student performance and system statistics.
+                </p>
+
+            </div>
+
+
+            <button class="export-button"
+                    onclick="exportCSV()">
+
+                📥 Download Excel Report
+
+            </button>
+
+        </div>
+
+
+        <div class="report-grid">
+
+            <div class="report-card">
+
+                <span>
+                    Total Students
+                </span>
+
+                <strong id="reportStudents">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="report-card">
+
+                <span>
+                    Average CGPA
+                </span>
+
+                <strong id="reportCGPA">
+                    0.00
+                </strong>
+
+            </div>
+
+
+            <div class="report-card">
+
+                <span>
+                    Average Attendance
+                </span>
+
+                <strong id="reportAttendance">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="report-card">
+
+                <span>
+                    Active Students
+                </span>
+
+                <strong id="activeStudents">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        PERFORMANCE DISTRIBUTION
+                    </span>
+
+                    <h3>
+                        CGPA Analysis
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="report-bars">
+
+                <div class="report-bar">
+
+                    <span>
+                        Excellent (9–10)
+                    </span>
+
+                    <div>
+                        <i id="reportExcellent"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="report-bar">
+
+                    <span>
+                        Good (8–8.9)
+                    </span>
+
+                    <div>
+                        <i id="reportGood"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="report-bar">
+
+                    <span>
+                        Average (7–7.9)
+                    </span>
+
+                    <div>
+                        <i id="reportAverage"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="report-bar">
+
+                    <span>
+                        Below 7
+                    </span>
+
+                    <div>
+                        <i id="reportLow"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= DSA ================= -->
+
+    <section id="dsa"
+             class="page-section">
+
+        <div class="section-top">
+
+            <div>
+
+                <span class="eyebrow">
+                    DATA STRUCTURES & ALGORITHMS
+                </span>
+
+                <h2>
+                    DSA Operations
+                </h2>
+
+                <p>
+                    Data structures implemented in the Student Management System.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="dsa-grid">
+
+            <div class="dsa-card">
+
+                <div class="dsa-icon">
+                    🔗
+                </div>
+
+                <h3>
+                    Linked List
+                </h3>
+
+                <p>
+                    Used for dynamic storage and management
+                    of student records.
+                </p>
+
+                <span>
+                    INSERT • DELETE • DISPLAY
+                </span>
+
+            </div>
+
+
+            <div class="dsa-card">
+
+                <div class="dsa-icon">
+                    📚
+                </div>
+
+                <h3>
+                    Stack
+                </h3>
+
+                <p>
+                    Recently deleted students are stored
+                    using LIFO operations.
+                </p>
+
+                <span>
+                    PUSH • POP • PEEK
+                </span>
+
+            </div>
+
+
+            <div class="dsa-card">
+
+                <div class="dsa-icon">
+                    🚶
+                </div>
+
+                <h3>
+                    Queue
+                </h3>
+
+                <p>
+                    Admission waiting list follows
+                    First-In-First-Out operations.
+                </p>
+
+                <span>
+                    ENQUEUE • DEQUEUE
+                </span>
+
+            </div>
+
+
+            <div class="dsa-card">
+
+                <div class="dsa-icon">
+                    🔍
+                </div>
+
+                <h3>
+                    Searching
+                </h3>
+
+                <p>
+                    Search student records using roll number,
+                    name or department.
+                </p>
+
+                <span>
+                    SEARCH
+                </span>
+
+            </div>
+
+
+            <div class="dsa-card">
+
+                <div class="dsa-icon">
+                    ↕️
+                </div>
+
+                <h3>
+                    Sorting
+                </h3>
+
+                <p>
+                    Sort students according to CGPA
+                    for academic ranking.
+                </p>
+
+                <span>
+                    SORT BY CGPA
+                </span>
+
+            </div>
+
+
+            <div class="dsa-card">
+
+                <div class="dsa-icon">
+                    💾
+                </div>
+
+                <h3>
+                    File Handling
+                </h3>
+
+                <p>
+                    Student records can be stored and
+                    retrieved from files.
+                </p>
+
+                <span>
+                    READ • WRITE
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="dsa-note">
+
+            <strong>
+                DSA Integration
+            </strong>
+
+            <p>
+                The website acts as the user interface while
+                the C backend will perform the actual data
+                structure operations.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ADMINISTRATION ================= -->
+
+    <section id="administration"
+             class="page-section">
+
+        <div class="section-top">
+
+            <div>
+
+                <span class="eyebrow">
+                    SYSTEM ADMINISTRATION
+                </span>
+
+                <h2>
+                    Administration
+                </h2>
+
+                <p>
+                    Manage system administrators and permissions.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="admin-grid">
+
+
+            <div class="admin-profile-card">
+
+                <div class="large-avatar">
+                    K
+                </div>
+
+                <h3>
+                    Krupa
+                </h3>
+
+                <p>
+                    Head Administrator
+                </p>
+
+                <span>
+                    Full System Access
+                </span>
+
+            </div>
+
+
+            <div class="admin-profile-card">
+
+                <div class="large-avatar">
+                    V
+                </div>
+
+                <h3>
+                    Vidula
+                </h3>
+
+                <p>
+                    Head Administrator
+                </p>
+
+                <span>
+                    Full System Access
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="panel permissions">
+
+            <h3>
+                Administrator Permissions
+            </h3>
+
+            <div class="permission-list">
+
+                <div>
+                    <span>Manage Student Records</span>
+                    <b>✓ Allowed</b>
+                </div>
+
+                <div>
+                    <span>Modify Academic Records</span>
+                    <b>✓ Allowed</b>
+                </div>
+
+                <div>
+                    <span>Manage Waiting List</span>
+                    <b>✓ Allowed</b>
+                </div>
+
+                <div>
+                    <span>Generate Reports</span>
+                    <b>✓ Allowed</b>
+                </div>
+
+                <div>
+                    <span>Export Student Data</span>
+                    <b>✓ Allowed</b>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= NOTIFICATIONS ================= -->
+
+    <section id="notifications"
+             class="page-section">
+
+        <div class="section-top">
+
+            <div>
+
+                <span class="eyebrow">
+                    SYSTEM ALERTS
+                </span>
+
+                <h2>
+                    Notifications
+                </h2>
+
+                <p>
+                    Important updates and system alerts.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="notification-list">
+
+            <div class="notification-card">
+
+                <div class="notification-icon">
+                    🎓
+                </div>
+
+                <div>
+
+                    <strong>
+                        Student records updated
+                    </strong>
+
+                    <p>
+                        Academic records are ready for review.
+                    </p>
+
+                    <small>
+                        Recently
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="notification-card">
+
+                <div class="notification-icon">
+                    ⏳
+                </div>
+
+                <div>
+
+                    <strong>
+                        Admission waiting list
+                    </strong>
+
+                    <p>
+                        New students have been added to the queue.
+                    </p>
+
+                    <small>
+                        Today
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="notification-card">
+
+                <div class="notification-icon">
+                    📊
+                </div>
+
+                <div>
+
+                    <strong>
+                        Monthly report available
+                    </strong>
+
+                    <p>
+                        Student performance report is ready.
+                    </p>
+
+                    <small>
+                        Today
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SETTINGS ================= -->
+
+    <section id="settings"
+             class="page-section">
+
+        <div class="section-top">
+
+            <div>
+
+                <span class="eyebrow">
+                    SYSTEM CONFIGURATION
+                </span>
+
+                <h2>
+                    Settings
+                </h2>
+
+                <p>
+                    Configure StudentHub system preferences.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="settings-panel">
+
+            <div class="setting-row">
+
+                <div>
+
+                    <strong>
+                        Automatic data validation
+                    </strong>
+
+                    <p>
+                        Validate CGPA and attendance values.
+                    </p>
+
+                </div>
+
+                <label class="switch">
+
+                    <input type="checkbox" checked>
+
+                    <span></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <strong>
+                        Notifications
+                    </strong>
+
+                    <p>
+                        Receive system notifications.
+                    </p>
+
+                </div>
+
+                <label class="switch">
+
+                    <input type="checkbox" checked>
+
+                    <span></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+
+                    <strong>
+                        Excel Export
+                    </strong>
+
+                    <p>
+                        Allow student records to be exported.
+                    </p>
+
+                </div>
+
+                <label class="switch">
+
+                    <input type="checkbox" checked>
+
+                    <span></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- ================= ADD STUDENT MODAL ================= -->
+
+<div id="studentModal"
+     class="modal">
+
+
+    <div class="modal-content">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    STUDENT INFORMATION
+                </span>
+
+                <h2 id="modalTitle">
+                    Add New Student
+                </h2>
+
+            </div>
+
+
+            <button class="close-button"
+                    onclick="closeStudentModal()">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <form id="studentForm"
+              onsubmit="saveStudent(event)">
+
+
+            <input type="hidden"
+                   id="editIndex">
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Roll Number
+                    </label>
+
+                    <input type="number"
+                           id="roll"
+                           required
+                           placeholder="Enter roll number">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Student Name
+                    </label>
+
+                    <input type="text"
+                           id="name"
+                           required
+                           placeholder="Full name">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input type="email"
+                           id="email"
+                           required
+                           placeholder="student@email.com">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Phone
+                    </label>
+
+                    <input type="tel"
+                           id="phone"
+                           required
+                           placeholder="Phone number">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Department
+                    </label>
+
+                    <select id="department"
+                            required>
+
+                        <option value="">
+                            Select Department
+                        </option>
+
+                        <option value="EXTC">
+                            EXTC
+                        </option>
+
+                        <option value="CSE">
+                            CSE
+                        </option>
+
+                        <option value="IT">
+                            IT
+                        </option>
+
+                        <option value="AI & DS">
+                            AI & DS
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Year
+                    </label>
+
+                    <select id="year"
+                            required>
+
+                        <option value="">
+                            Select Year
+                        </option>
+
+                        <option value="FE">
+                            FE
+                        </option>
+
+                        <option value="SE">
+                            SE
+                        </option>
+
+                        <option value="TE">
+                            TE
+                        </option>
+
+                        <option value="BE">
+                            BE
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Division
+                    </label>
+
+                    <select id="division"
+                            required>
+
+                        <option value="">
+                            Select Division
+                        </option>
+
+                        <option value="A">
+                            A
+                        </option>
+
+                        <option value="B">
+                            B
+                        </option>
+
+                        <option value="C">
+                            C
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        CGPA
+                    </label>
+
+                    <input type="number"
+                           id="cgpa"
+                           required
+                           min="0"
+                           max="10"
+                           step="0.01"
+                           placeholder="0.00 – 10.00">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Attendance (%)
+                    </label>
+
+                    <input type="number"
+                           id="attendance"
+                           required
+                           min="0"
+                           max="100"
+                           placeholder="0 – 100">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Status
+                    </label>
+
+                    <select id="status">
+
+                        <option value="Active">
+                            Active
+                        </option>
+
+                        <option value="Inactive">
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button type="button"
+                        class="cancel-button"
+                        onclick="closeStudentModal()">
+
+                    Cancel
+
+                </button>
+
+
+                <button type="submit"
+                        class="primary-button">
+
+                    Save Student
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
