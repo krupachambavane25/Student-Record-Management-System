@@ -222,7 +222,6 @@ The system should be tested using the following cases:
 | 9 | Generate report | Correct statistics displayed |
 | 10 | Empty Stack/Queue operation | Appropriate message displayed |
 
----
 
 
 ---
