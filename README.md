@@ -165,13 +165,13 @@ gcc src/student_record_management_system.c -o student_record_system
 ### 4. Run the Program on Windows
 
 ```bash
-student_record_system.exe
+server.exe
 ```
 
 ### Linux/macOS
 
 ```bash
-./student_record_system
+./server
 ```
 
 ---
